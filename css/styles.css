@@ -3,7 +3,7 @@
    =========================== */
 :root {
   /* Light Theme Colors */
-  --color-primary: #2563eb;      /* Blue */
+  --color-primary: #059669;      /* Green */
   --color-secondary: #0f766e;    /* Teal */
   --color-accent: #dc2626;       /* Red */
   --color-background: #ffffff;   /* White */
@@ -18,7 +18,7 @@
 
 /* Dark Theme Colors */
 [data-theme="dark"] {
-  --color-primary: #3b82f6;      /* Lighter Blue */
+  --color-primary: #10b981;      /* Lighter Green */
   --color-secondary: #14b8a6;    /* Lighter Teal */
   --color-accent: #ef4444;       /* Lighter Red */
   --color-background: #111827;   /* Dark gray */
@@ -338,6 +338,8 @@ a:focus {
   width: 40px;
   height: 40px;
   margin-left: var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
 }
 
 .theme-toggle:hover {
@@ -353,21 +355,33 @@ a:focus {
 .theme-toggle svg {
   width: 20px;
   height: 20px;
-  transition: transform var(--transition-fast);
+  transition: transform 0.4s cubic-bezier(0.4, 0.2, 0.2, 1), opacity 0.3s;
+  will-change: transform, opacity;
 }
 
 .theme-toggle:hover svg {
-  transform: scale(1.1);
+  transform: scale(1.2) rotate(-20deg);
 }
 
-/* Hide icons based on theme */
+.theme-toggle:active svg {
+  transform: scale(0.95) rotate(20deg);
+}
+
+.theme-toggle .sun-icon, .theme-toggle .moon-icon {
+  transition: opacity 0.3s, transform 0.4s;
+}
+
 [data-theme="dark"] .theme-toggle .sun-icon {
   display: none;
+  opacity: 0;
+  transform: scale(0.7) rotate(-90deg);
 }
 
 [data-theme="light"] .theme-toggle .moon-icon,
 :root:not([data-theme]) .theme-toggle .moon-icon {
   display: none;
+  opacity: 0;
+  transform: scale(0.7) rotate(90deg);
 }
 
 /* ===========================

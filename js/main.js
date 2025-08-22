@@ -115,20 +115,23 @@ function initializeThemeToggle() {
 function toggleTheme() {
   const currentTheme = document.documentElement.getAttribute('data-theme');
   const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-  
-  // Apply new theme
+
+  // Animate toggle button
+  const activeButton = document.querySelector('.theme-toggle');
+  if (activeButton) {
+    activeButton.classList.add('theme-toggle-animating');
+    setTimeout(() => {
+      activeButton.classList.remove('theme-toggle-animating');
+    }, 400);
+  }
+
+  // Animate theme transition
+  document.documentElement.style.transition = 'background-color 0.5s cubic-bezier(0.4,0.2,0.2,1), color 0.5s cubic-bezier(0.4,0.2,0.2,1)';
   document.documentElement.setAttribute('data-theme', newTheme);
-  
-  // Save to localStorage
   localStorage.setItem('theme', newTheme);
-  
-  // Optional: Add a smooth transition effect
-  document.documentElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
-  
-  // Remove transition after animation completes
   setTimeout(() => {
     document.documentElement.style.transition = '';
-  }, 300);
+  }, 500);
 }
 
 // ===========================
