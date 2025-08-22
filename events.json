@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "date": "2024-08-25",
+    "title": "New Student Orientation",
+    "time": "09:00",
+    "description": "Welcome session for new students and their families. Campus tour included."
+  },
+  {
+    "id": 2,
+    "date": "2024-09-05",
+    "title": "Back to School Night",
+    "time": "18:00",
+    "description": "Meet your child's teachers and learn about the curriculum for the new school year."
+  },
+  {
+    "id": 3,
+    "date": "2024-09-12",
+    "title": "Science Fair",
+    "time": "14:00",
+    "description": "Annual science fair showcasing student projects and innovations."
+  },
+  {
+    "id": 4,
+    "date": "2024-09-18",
+    "title": "Parent-Teacher Conference",
+    "time": "16:00",
+    "description": "Individual meetings between parents and teachers to discuss student progress."
+  },
+  {
+    "id": 5,
+    "date": "2024-09-25",
+    "title": "Sports Day",
+    "time": "10:00",
+    "description": "Annual sports competition with various athletic events for all grade levels."
+  },
+  {
+    "id": 6,
+    "date": "2024-10-08",
+    "title": "Art Exhibition Opening",
+    "time": "18:00",
+    "description": "Opening night for the student art exhibition featuring works from all grades."
+  },
+  {
+    "id": 7,
+    "date": "2024-10-15",
+    "title": "Math Competition",
+    "time": "13:00",
+    "description": "Inter-school mathematics competition for grades 6-12."
+  },
+  {
+    "id": 8,
+    "date": "2024-10-31",
+    "title": "Halloween Costume Parade",
+    "time": "15:00",
+    "description": "Students showcase their Halloween costumes in a fun parade around the school."
+  },
+  {
+    "id": 9,
+    "date": "2024-11-15",
+    "title": "Fall Concert",
+    "time": "19:00",
+    "description": "Musical performance by the school choir and orchestra."
+  },
+  {
+    "id": 10,
+    "date": "2024-11-25",
+    "title": "Thanksgiving Break Begins",
+    "time": "15:30",
+    "description": "Last day of school before Thanksgiving break. Early dismissal."
+  },
+  {
+    "id": 11,
+    "date": "2024-12-03",
+    "title": "Career Day",
+    "time": "11:00",
+    "description": "Professionals from various fields share their experiences with students."
+  },
+  {
+    "id": 12,
+    "date": "2024-12-20",
+    "title": "Winter Holiday Concert",
+    "time": "18:00",
+    "description": "Celebrate the season with performances by our talented students."
+  }
+]
