@@ -4,8 +4,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Welcome to Riverside Academy - Excellence in Education. Learn about our programs, admissions, and upcoming events.">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <meta name="keywords" content="Riverside Academy, school, education, K-12, college prep, STEM, arts, academic excellence">
+    <meta name="author" content="Riverside Academy">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://riversideacademy.edu/">
+    <meta property="og:title" content="Riverside Academy - Excellence in Education">
+    <meta property="og:description" content="Excellence in Education Since 1985. Rigorous academics, small class sizes, and comprehensive programs preparing students for success.">
+    <meta property="og:image" content="https://riversideacademy.edu/assets/og-image.jpg">
+    <meta property="og:site_name" content="Riverside Academy">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://riversideacademy.edu/">
+    <meta property="twitter:title" content="Riverside Academy - Excellence in Education">
+    <meta property="twitter:description" content="Excellence in Education Since 1985. Rigorous academics, small class sizes, and comprehensive programs preparing students for success.">
+    <meta property="twitter:image" content="https://riversideacademy.edu/assets/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://riversideacademy.edu/">
+    
     <title>Riverside Academy - Excellence in Education</title>
     <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#059669">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Riverside Academy">
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "EducationalOrganization",
+      "name": "Riverside Academy",
+      "alternateName": "Riverside Academy School",
+      "url": "https://riversideacademy.edu",
+      "logo": "https://riversideacademy.edu/assets/logos/logo.svg",
+      "description": "Excellence in Education Since 1985. Rigorous academics, small class sizes, and comprehensive programs preparing students for success.",
+      "foundingDate": "1985",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Education Boulevard",
+        "addressLocality": "Riverside",
+        "addressRegion": "CA",
+        "postalCode": "92501",
+        "addressCountry": "US"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-555-123-4567",
+        "contactType": "customer service",
+        "email": "info@riversideacademy.edu"
+      },
+      "sameAs": [
+        "https://facebook.com/riversideacademy",
+        "https://twitter.com/riversideacademy",
+        "https://instagram.com/riversideacademy"
+      ],
+      "educationalCredentialAwarded": "High School Diploma",
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "name": "High School Diploma"
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Skip Link for Accessibility -->
@@ -43,6 +112,7 @@
                     <li role="none"><a href="events.html" class="nav-link" role="menuitem">Events</a></li>
                     <li role="none"><a href="gallery.html" class="nav-link" role="menuitem">Gallery</a></li>
                     <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="faculty.html" class="nav-link" role="menuitem">Faculty</a></li>
                     <li role="none"><a href="login.html" class="nav-link" role="menuitem">Login</a></li>
                 </ul>
             </nav>
@@ -238,10 +308,37 @@
         </section>
 
         <!-- News and Announcements -->
-        <section class="section">
+        <section class="section" id="newsSection">
             <div class="container">
                 <h2 class="text-center mb-xl">Latest News & Announcements</h2>
-                <div class="grid grid-md-3" style="gap: var(--spacing-xl);">
+                
+                <!-- Skeleton Loading State -->
+                <div class="grid grid-md-3 skeleton-content" style="gap: var(--spacing-xl);">
+                    <div class="feature-card">
+                        <div class="skeleton skeleton-avatar" style="width: 48px; height: 48px; margin-bottom: var(--spacing-md);"></div>
+                        <div class="skeleton skeleton-text large" style="margin-bottom: var(--spacing-sm);"></div>
+                        <div class="skeleton skeleton-text" style="margin-bottom: var(--spacing-xs);"></div>
+                        <div class="skeleton skeleton-text" style="margin-bottom: var(--spacing-xs);"></div>
+                        <div class="skeleton skeleton-text small" style="width: 60%;"></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="skeleton skeleton-avatar" style="width: 48px; height: 48px; margin-bottom: var(--spacing-md);"></div>
+                        <div class="skeleton skeleton-text large" style="margin-bottom: var(--spacing-sm);"></div>
+                        <div class="skeleton skeleton-text" style="margin-bottom: var(--spacing-xs);"></div>
+                        <div class="skeleton skeleton-text" style="margin-bottom: var(--spacing-xs);"></div>
+                        <div class="skeleton skeleton-text small" style="width: 60%;"></div>
+                    </div>
+                    <div class="feature-card">
+                        <div class="skeleton skeleton-avatar" style="width: 48px; height: 48px; margin-bottom: var(--spacing-md);"></div>
+                        <div class="skeleton skeleton-text large" style="margin-bottom: var(--spacing-sm);"></div>
+                        <div class="skeleton skeleton-text" style="margin-bottom: var(--spacing-xs);"></div>
+                        <div class="skeleton skeleton-text" style="margin-bottom: var(--spacing-xs);"></div>
+                        <div class="skeleton skeleton-text small" style="width: 60%;"></div>
+                    </div>
+                </div>
+                
+                <!-- Actual Content (hidden initially) -->
+                <div class="grid grid-md-3 news-content" style="gap: var(--spacing-xl); display: none;">
                     <div class="feature-card">
                         <div class="feature-card-icon">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">

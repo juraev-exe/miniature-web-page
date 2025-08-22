@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Meet our dedicated faculty at Riverside Academy. Experienced educators committed to student success.">
+    <title>Faculty Profiles - Riverside Academy</title>
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#059669">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header and Navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-left">
+                    <a href="index.html" class="nav-brand" aria-label="Riverside Academy Home">
+                        <img src="assets/logos/logo.svg" alt="Riverside Academy Logo" width="120" height="60">
+                    </a>
+                </div>
+                
+                <div class="nav-right">
+                    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                        <span class="hamburger"></span>
+                    </button>
+                    
+                    <button type="button" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+                        </svg>
+                        <svg class="moon-icon" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="admissions.html" class="nav-link" role="menuitem">Admissions</a></li>
+                    <li role="none"><a href="events.html" class="nav-link" role="menuitem">Events</a></li>
+                    <li role="none"><a href="gallery.html" class="nav-link" role="menuitem">Gallery</a></li>
+                    <li role="none"><a href="contact.html" class="nav-link" role="menuitem">Contact</a></li>
+                    <li role="none"><a href="faculty.html" class="nav-link" role="menuitem">Faculty</a></li>
+                    <li role="none"><a href="login.html" class="nav-link" role="menuitem">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Page Header -->
+        <section class="section bg-primary" style="color: white; text-align: center; padding: 3rem 0;">
+            <div class="container">
+                <h1 style="color: white; margin-bottom: var(--spacing-md);">Our Faculty</h1>
+                <p style="font-size: var(--font-size-lg); color: white; max-width: 600px; margin: 0 auto;">
+                    Meet our dedicated educators who inspire excellence and foster student growth every day.
+                </p>
+            </div>
+        </section>
+
+        <!-- Faculty Grid -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid-md-3" style="gap: var(--spacing-xl);">
+                    
+                    <!-- Faculty Member 1 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <div class="skeleton skeleton-avatar" style="width: 120px; height: 120px; margin: 0 auto;"></div>
+                            <!-- Placeholder for actual photo -->
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto;">
+                                SW
+                            </div>
+                        </div>
+                        <div class="faculty-info">
+                            <h3 class="text-primary">Dr. Sarah Wilson</h3>
+                            <p class="faculty-title">Science Department Head</p>
+                            <p class="faculty-education">Ph.D. in Chemistry, Stanford University</p>
+                            <p class="faculty-bio">Dr. Wilson brings 15 years of research experience and a passion for making science accessible to all students. She specializes in organic chemistry and environmental science.</p>
+                            <div class="faculty-expertise">
+                                <h4>Areas of Expertise:</h4>
+                                <ul>
+                                    <li>Organic Chemistry</li>
+                                    <li>Environmental Science</li>
+                                    <li>Research Methods</li>
+                                </ul>
+                            </div>
+                            <div class="faculty-contact">
+                                <p><strong>Email:</strong> s.wilson@riversideacademy.edu</p>
+                                <p><strong>Office:</strong> Science Wing, Room 201</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 2 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto;">
+                                MC
+                            </div>
+                        </div>
+                        <div class="faculty-info">
+                            <h3 class="text-primary">Mr. Michael Chen</h3>
+                            <p class="faculty-title">Mathematics Teacher</p>
+                            <p class="faculty-education">M.S. in Mathematics, UC Berkeley</p>
+                            <p class="faculty-bio">Mr. Chen is passionate about helping students discover the beauty and practical applications of mathematics. He coaches the Math Olympiad team and teaches AP Calculus.</p>
+                            <div class="faculty-expertise">
+                                <h4>Areas of Expertise:</h4>
+                                <ul>
+                                    <li>Advanced Calculus</li>
+                                    <li>Statistics</li>
+                                    <li>Competition Mathematics</li>
+                                </ul>
+                            </div>
+                            <div class="faculty-contact">
+                                <p><strong>Email:</strong> m.chen@riversideacademy.edu</p>
+                                <p><strong>Office:</strong> Math Wing, Room 105</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 3 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto;">
+                                ER
+                            </div>
+                        </div>
+                        <div class="faculty-info">
+                            <h3 class="text-primary">Ms. Emily Rodriguez</h3>
+                            <p class="faculty-title">English Literature Teacher</p>
+                            <p class="faculty-education">M.A. in English Literature, UCLA</p>
+                            <p class="faculty-bio">Ms. Rodriguez inspires students to develop critical thinking and communication skills through literature. She directs the school's drama club and debate team.</p>
+                            <div class="faculty-expertise">
+                                <h4>Areas of Expertise:</h4>
+                                <ul>
+                                    <li>American Literature</li>
+                                    <li>Creative Writing</li>
+                                    <li>Public Speaking</li>
+                                </ul>
+                            </div>
+                            <div class="faculty-contact">
+                                <p><strong>Email:</strong> e.rodriguez@riversideacademy.edu</p>
+                                <p><strong>Office:</strong> Humanities Wing, Room 302</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 4 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto;">
+                                DM
+                            </div>
+                        </div>
+                        <div class="faculty-info">
+                            <h3 class="text-primary">Dr. David Martinez</h3>
+                            <p class="faculty-title">History Department Head</p>
+                            <p class="faculty-education">Ph.D. in History, Harvard University</p>
+                            <p class="faculty-bio">Dr. Martinez brings historical perspectives to life through engaging storytelling and critical analysis. He leads Model UN and coordinates cultural exchange programs.</p>
+                            <div class="faculty-expertise">
+                                <h4>Areas of Expertise:</h4>
+                                <ul>
+                                    <li>World History</li>
+                                    <li>International Relations</li>
+                                    <li>Comparative Government</li>
+                                </ul>
+                            </div>
+                            <div class="faculty-contact">
+                                <p><strong>Email:</strong> d.martinez@riversideacademy.edu</p>
+                                <p><strong>Office:</strong> Social Studies Wing, Room 150</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 5 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--color-text); font-size: 2rem; margin: 0 auto;">
+                                LA
+                            </div>
+                        </div>
+                        <div class="faculty-info">
+                            <h3 class="text-primary">Ms. Lisa Anderson</h3>
+                            <p class="faculty-title">Art & Design Teacher</p>
+                            <p class="faculty-education">M.F.A. in Fine Arts, RISD</p>
+                            <p class="faculty-bio">Ms. Anderson nurtures creativity and artistic expression while teaching technical skills across various media. She curates the annual student art exhibition.</p>
+                            <div class="faculty-expertise">
+                                <h4>Areas of Expertise:</h4>
+                                <ul>
+                                    <li>Digital Art & Design</li>
+                                    <li>Traditional Media</li>
+                                    <li>Art History</li>
+                                </ul>
+                            </div>
+                            <div class="faculty-contact">
+                                <p><strong>Email:</strong> l.anderson@riversideacademy.edu</p>
+                                <p><strong>Office:</strong> Arts Building, Studio 1</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Member 6 -->
+                    <div class="faculty-card">
+                        <div class="faculty-image">
+                            <div style="width: 120px; height: 120px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; margin: 0 auto;">
+                                JT
+                            </div>
+                        </div>
+                        <div class="faculty-info">
+                            <h3 class="text-primary">Coach James Thompson</h3>
+                            <p class="faculty-title">Physical Education & Athletics Director</p>
+                            <p class="faculty-education">M.S. in Exercise Science, USC</p>
+                            <p class="faculty-bio">Coach Thompson promotes physical fitness and team building through various sports programs. He emphasizes character development through athletics.</p>
+                            <div class="faculty-expertise">
+                                <h4>Areas of Expertise:</h4>
+                                <ul>
+                                    <li>Athletic Training</li>
+                                    <li>Team Sports</li>
+                                    <li>Health & Wellness</li>
+                                </ul>
+                            </div>
+                            <div class="faculty-contact">
+                                <p><strong>Email:</strong> j.thompson@riversideacademy.edu</p>
+                                <p><strong>Office:</strong> Athletic Center, Room 115</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Department Information -->
+        <section class="section bg-alt">
+            <div class="container">
+                <h2 class="text-center mb-xl">Academic Departments</h2>
+                <div class="grid grid-md-2" style="gap: var(--spacing-xl);">
+                    <div class="feature-card">
+                        <h3 class="text-primary">STEM Department</h3>
+                        <p>Our science, technology, engineering, and mathematics faculty provide hands-on learning experiences that prepare students for future careers in these critical fields.</p>
+                        <ul>
+                            <li>Advanced laboratory facilities</li>
+                            <li>Robotics and coding programs</li>
+                            <li>Research opportunities</li>
+                            <li>Industry partnerships</li>
+                        </ul>
+                    </div>
+                    <div class="feature-card">
+                        <h3 class="text-primary">Humanities Department</h3>
+                        <p>English, history, and social studies teachers help students develop critical thinking, communication skills, and cultural awareness through engaging curriculum.</p>
+                        <ul>
+                            <li>Literature and writing workshops</li>
+                            <li>Debate and public speaking</li>
+                            <li>Model United Nations</li>
+                            <li>Cultural exchange programs</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Join Our Team -->
+        <section class="section">
+            <div class="container text-center">
+                <h2 class="mb-lg">Join Our Faculty</h2>
+                <p style="font-size: var(--font-size-lg); max-width: 600px; margin: 0 auto var(--spacing-xl) auto; color: var(--color-text-light);">
+                    We're always looking for passionate educators who want to make a difference in students' lives. 
+                    If you're interested in joining our team, we'd love to hear from you.
+                </p>
+                <a href="contact.html" class="btn btn-primary">View Open Positions</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="grid grid-md-3" style="gap: var(--spacing-xl);">
+                <div>
+                    <h3>Contact Information</h3>
+                    <p>123 Education Boulevard</p>
+                    <p>Riverside, CA 92501</p>
+                    <p>Phone: (555) 123-4567</p>
+                    <p>Email: info@riversideacademy.edu</p>
+                </div>
+                
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="events.html">Events</a></li>
+                        <li><a href="student-portal.html">Student Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3>School Hours</h3>
+                    <p>Monday - Friday: 8:00 AM - 3:30 PM</p>
+                    <p>Office Hours: 7:30 AM - 4:00 PM</p>
+                    <p>Emergency: (555) 123-4568</p>
+                </div>
+            </div>
+            
+            <div class="footer-divider">
+                <p>&copy; 2024 Riverside Academy. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
