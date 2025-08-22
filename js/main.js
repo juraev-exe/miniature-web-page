@@ -803,9 +803,63 @@ function animateCounters() {
   });
 }
 
+// ===========================
+// HERO STATISTICS ANIMATION
+// ===========================
+function animateHeroStats() {
+  const heroCounters = document.querySelectorAll('.stat-hero-number');
+  
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px'
+  };
+  
+  const heroObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const statItem = counter.closest('.stat-hero-item');
+        const target = parseInt(counter.getAttribute('data-target'));
+        
+        // Add counting animation class
+        if (statItem) {
+          statItem.classList.add('counting');
+        }
+        
+        // Animate the number
+        const duration = 2000; // 2 seconds
+        const increment = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+            
+            // Remove counting animation class
+            if (statItem) {
+              statItem.classList.remove('counting');
+            }
+          } else {
+            counter.textContent = Math.floor(current);
+          }
+        }, 16);
+        
+        heroObserver.unobserve(counter);
+      }
+    });
+  }, observerOptions);
+  
+  heroCounters.forEach(counter => {
+    heroObserver.observe(counter);
+  });
+}
+
 // Call animate counters on page load
 document.addEventListener('DOMContentLoaded', function() {
   setTimeout(animateCounters, 1000);
+  setTimeout(animateHeroStats, 500);
 });
 
 // ===========================

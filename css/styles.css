@@ -716,6 +716,172 @@ a:focus {
 }
 
 /* ===========================
+   HERO STATISTICS SECTION
+   =========================== */
+.stats-hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin: var(--spacing-xl) 0;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stat-hero-item {
+  text-align: center;
+  position: relative;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: statsSlideUp 0.8s ease-out forwards;
+}
+
+.stat-hero-item:nth-child(1) { animation-delay: 0.1s; }
+.stat-hero-item:nth-child(2) { animation-delay: 0.2s; }
+.stat-hero-item:nth-child(3) { animation-delay: 0.3s; }
+.stat-hero-item:nth-child(4) { animation-delay: 0.4s; }
+
+.stat-hero-circle {
+  width: 180px;
+  height: 180px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-lg);
+  position: relative;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.4, 0.2, 0.2, 1);
+  overflow: hidden;
+}
+
+.stat-hero-circle::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: rotate 3s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.stat-hero-item:hover .stat-hero-circle::before {
+  opacity: 1;
+}
+
+.stat-hero-circle:hover {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.stat-hero-number {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: white;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-hero-percent,
+.stat-hero-colon,
+.stat-hero-plus {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.stat-hero-label {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  display: block;
+  line-height: 1.4;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes statsSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.stat-hero-item.counting .stat-hero-circle {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .stats-hero-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+  
+  .stat-hero-circle {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .stat-hero-number {
+    font-size: 2.5rem;
+  }
+  
+  .stat-hero-percent,
+  .stat-hero-colon,
+  .stat-hero-plus {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .stat-hero-circle {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* ===========================
    BUTTONS
    =========================== */
 .btn {
