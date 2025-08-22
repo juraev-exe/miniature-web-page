@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay up-to-date with Riverside Academy events, activities, and important dates. View our interactive calendar.">
+    <title>Events Calendar - Riverside Academy</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header and Navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-brand" aria-label="Riverside Academy Home">
+                    <img src="assets/logos/logo.svg" alt="Riverside Academy Logo" width="120" height="60">
+                </a>
+                
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="admissions.html" class="nav-link" role="menuitem">Admissions</a></li>
+                    <li role="none"><a href="events.html" class="nav-link" role="menuitem">Events</a></li>
+                    <li role="none"><a href="login.html" class="nav-link" role="menuitem">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Page Header -->
+        <section class="section bg-primary" style="color: white; text-align: center; padding: 3rem 0;">
+            <div class="container">
+                <h1 style="color: white; margin-bottom: var(--spacing-md);">Events Calendar</h1>
+                <p style="font-size: var(--font-size-lg); color: white; max-width: 600px; margin: 0 auto;">
+                    Stay connected with our vibrant school community through upcoming events and activities.
+                </p>
+            </div>
+        </section>
+
+        <!-- Calendar Instructions -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+                    <h2>How to Use the Calendar</h2>
+                    <div class="grid grid-md-3" style="gap: var(--spacing-lg); margin-top: var(--spacing-lg);">
+                        <div class="text-center">
+                            <div style="width: 60px; height: 60px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-xl);">
+                                👆
+                            </div>
+                            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-sm);">Click Dates</h3>
+                            <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">Click on any date to view event details for that day</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div style="width: 60px; height: 60px; background-color: var(--color-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-xl);">
+                                ⌨️
+                            </div>
+                            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-sm);">Keyboard Navigation</h3>
+                            <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">Use arrow keys to navigate and Enter to select dates</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div style="width: 60px; height: 60px; background-color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-xl);">
+                                📅
+                            </div>
+                            <h3 style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-sm);">Event Highlights</h3>
+                            <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">Dates with events are highlighted and show a small indicator</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Calendar -->
+        <section class="section bg-alt">
+            <div class="container">
+                <h2 class="text-center mb-xl">School Calendar</h2>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div id="calendar" role="application" aria-label="School events calendar">
+                        <!-- Calendar will be dynamically generated here by JavaScript -->
+                    </div>
+                    
+                    <!-- Calendar Legend -->
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background-color: var(--color-background); border-radius: var(--border-radius-md); border: 1px solid var(--color-border);">
+                        <h3 style="margin-bottom: var(--spacing-md);">Calendar Legend</h3>
+                        <div class="grid grid-sm-2" style="gap: var(--spacing-md);">
+                            <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <div style="width: 20px; height: 20px; background-color: rgba(37, 99, 235, 0.1); border: 1px solid var(--color-primary); border-radius: var(--border-radius-sm);"></div>
+                                <span style="font-size: var(--font-size-sm);">Dates with events</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: var(--spacing-sm);">
+                                <div style="width: 20px; height: 20px; background-color: var(--color-background-alt); border: 1px solid var(--color-border); border-radius: var(--border-radius-sm);"></div>
+                                <span style="font-size: var(--font-size-sm);">Regular dates</span>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: var(--spacing-md); padding-top: var(--spacing-md); border-top: 1px solid var(--color-border);">
+                            <h4 style="margin-bottom: var(--spacing-sm);">Keyboard Navigation:</h4>
+                            <div style="font-size: var(--font-size-sm); color: var(--color-text-light); line-height: var(--line-height-relaxed);">
+                                <strong>Arrow Keys:</strong> Navigate between dates<br>
+                                <strong>Enter/Space:</strong> View event details<br>
+                                <strong>Page Up/Down:</strong> Previous/Next month<br>
+                                <strong>Home/End:</strong> First/Last day of month<br>
+                                <strong>Escape:</strong> Close event details
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events List -->
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center mb-xl">Upcoming Events</h2>
+                <div class="grid grid-md-2" style="gap: var(--spacing-lg); max-width: 1000px; margin: 0 auto;">
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-sm);">
+                                <h3 class="text-primary" style="margin-bottom: 0;">New Student Orientation</h3>
+                                <span style="background-color: var(--color-primary); color: white; padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Aug 25</span>
+                            </div>
+                            <p style="color: var(--color-text-light); margin-bottom: var(--spacing-sm); font-size: var(--font-size-sm);">
+                                <strong>Time:</strong> 9:00 AM
+                            </p>
+                            <p>Welcome session for new students and their families. Campus tour included.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-sm);">
+                                <h3 class="text-primary" style="margin-bottom: 0;">Back to School Night</h3>
+                                <span style="background-color: var(--color-secondary); color: white; padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Sep 5</span>
+                            </div>
+                            <p style="color: var(--color-text-light); margin-bottom: var(--spacing-sm); font-size: var(--font-size-sm);">
+                                <strong>Time:</strong> 6:00 PM
+                            </p>
+                            <p>Meet your child's teachers and learn about the curriculum for the new school year.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-sm);">
+                                <h3 class="text-primary" style="margin-bottom: 0;">Science Fair</h3>
+                                <span style="background-color: var(--color-accent); color: white; padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Sep 12</span>
+                            </div>
+                            <p style="color: var(--color-text-light); margin-bottom: var(--spacing-sm); font-size: var(--font-size-sm);">
+                                <strong>Time:</strong> 2:00 PM
+                            </p>
+                            <p>Annual science fair showcasing student projects and innovations.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: var(--spacing-sm);">
+                                <h3 class="text-primary" style="margin-bottom: 0;">Parent-Teacher Conference</h3>
+                                <span style="background-color: var(--color-warning); color: white; padding: var(--spacing-xs) var(--spacing-sm); border-radius: var(--border-radius-sm); font-size: var(--font-size-sm);">Sep 18</span>
+                            </div>
+                            <p style="color: var(--color-text-light); margin-bottom: var(--spacing-sm); font-size: var(--font-size-sm);">
+                                <strong>Time:</strong> 4:00 PM
+                            </p>
+                            <p>Individual meetings between parents and teachers to discuss student progress.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Categories -->
+        <section class="section bg-alt">
+            <div class="container">
+                <h2 class="text-center mb-xl">Event Categories</h2>
+                <div class="grid grid-md-3" style="gap: var(--spacing-lg);">
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🎓
+                            </div>
+                            <h3 class="text-primary">Academic</h3>
+                            <p>Science fairs, math competitions, academic awards ceremonies, and educational workshops.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🎨
+                            </div>
+                            <h3 class="text-secondary">Arts & Culture</h3>
+                            <p>Art exhibitions, music concerts, theater performances, and creative showcases.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🏃‍♂️
+                            </div>
+                            <h3 class="text-accent">Athletics</h3>
+                            <p>Sports competitions, games, championships, and physical fitness events.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🤝
+                            </div>
+                            <h3 class="text-success">Community</h3>
+                            <p>Parent meetings, fundraising events, volunteer opportunities, and social gatherings.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🎉
+                            </div>
+                            <h3 class="text-warning">Special Events</h3>
+                            <p>Holiday celebrations, graduation ceremonies, and seasonal activities.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                📋
+                            </div>
+                            <h3 style="color: var(--color-text-light);">Administrative</h3>
+                            <p>School board meetings, orientation sessions, and information nights.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subscribe to Updates -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center" style="max-width: 600px; margin: 0 auto;">
+                    <h2>Stay Updated</h2>
+                    <p style="font-size: var(--font-size-lg); color: var(--color-text-light); margin-bottom: var(--spacing-xl);">
+                        Never miss an important event! Subscribe to our calendar updates and receive notifications about new events and schedule changes.
+                    </p>
+                    
+                    <form style="display: flex; gap: var(--spacing-sm); max-width: 400px; margin: 0 auto; flex-wrap: wrap;" onsubmit="event.preventDefault(); alert('Thank you for subscribing! This is a demo - no actual email will be sent.');">
+                        <div style="flex: 1; min-width: 200px;">
+                            <label for="email" class="sr-only">Email address</label>
+                            <input type="email" id="email" class="form-input" placeholder="Enter your email" required style="margin-bottom: 0;">
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="white-space: nowrap;">Subscribe</button>
+                    </form>
+                    
+                    <p style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-top: var(--spacing-md);">
+                        You can unsubscribe at any time. We respect your privacy.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="section" style="background-color: var(--color-text); color: white; padding: var(--spacing-xl) 0;" role="contentinfo">
+        <div class="container">
+            <div class="grid grid-md-3" style="gap: var(--spacing-xl);">
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">Contact Information</h3>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">123 Education Boulevard</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Riverside, CA 92501</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Phone: (555) 123-4567</p>
+                    <p style="color: white;">Email: info@riversideacademy.edu</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="about.html" style="color: white;">About Us</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="admissions.html" style="color: white;">Admissions</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="events.html" style="color: white;">Events</a></li>
+                        <li><a href="student-portal.html" style="color: white;">Student Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">School Hours</h3>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Monday - Friday: 8:00 AM - 3:30 PM</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Office Hours: 7:30 AM - 4:00 PM</p>
+                    <p style="color: white;">Emergency: (555) 123-4568</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl); padding-top: var(--spacing-xl); border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="color: white;">&copy; 2024 Riverside Academy. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    <script src="js/calendar.js"></script>
+</body>
+</html>

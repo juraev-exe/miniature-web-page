@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access your personalized student portal with grades, assignments, and school resources at Riverside Academy.">
+    <title>Student Portal - Riverside Academy</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header and Navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-brand" aria-label="Riverside Academy Home">
+                    <img src="assets/logos/logo.svg" alt="Riverside Academy Logo" width="120" height="60">
+                </a>
+                
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="admissions.html" class="nav-link" role="menuitem">Admissions</a></li>
+                    <li role="none"><a href="events.html" class="nav-link" role="menuitem">Events</a></li>
+                    <li role="none"><a href="login.html" class="nav-link" role="menuitem">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Welcome Section -->
+        <section class="section bg-primary" style="color: white; text-align: center; padding: 3rem 0;">
+            <div class="container">
+                <h1 style="color: white; margin-bottom: var(--spacing-md);">Student Portal</h1>
+                <p style="font-size: var(--font-size-lg); color: white; max-width: 600px; margin: 0 auto;" id="welcomeMessage">
+                    Welcome to your personalized learning dashboard
+                </p>
+            </div>
+        </section>
+
+        <!-- Portal Status -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    
+                    <!-- Authentication Check -->
+                    <div id="authenticationStatus" class="card mb-lg">
+                        <div class="card-content text-center">
+                            <h2 class="mb-md">Portal Access</h2>
+                            <div id="loggedInView" style="display: none;">
+                                <div style="width: 80px; height: 80px; background-color: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                    ✓
+                                </div>
+                                <h3 class="text-success mb-md">Successfully Logged In</h3>
+                                <div id="userInfo" class="mb-md">
+                                    <!-- User information will be populated here -->
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="logout()">Logout</button>
+                            </div>
+                            
+                            <div id="loggedOutView">
+                                <div style="width: 80px; height: 80px; background-color: var(--color-warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                    🔒
+                                </div>
+                                <h3 class="text-warning mb-md">Authentication Required</h3>
+                                <p class="mb-lg">Please log in to access your personalized student portal and resources.</p>
+                                <a href="login.html" class="btn btn-primary">Go to Login</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Portal Features Preview -->
+                    <div class="card">
+                        <div class="card-content">
+                            <h2 class="text-center mb-xl">Portal Features</h2>
+                            <p class="text-center mb-lg" style="color: var(--color-text-light);">
+                                This is a demonstration of what a student portal would include. In a real application, these features would be fully functional with backend integration.
+                            </p>
+                            
+                            <div class="grid grid-md-2" style="gap: var(--spacing-lg);">
+                                
+                                <!-- Academic Dashboard -->
+                                <div class="bg-alt" style="padding: var(--spacing-lg); border-radius: var(--border-radius-md);">
+                                    <h3 class="text-primary mb-md">📊 Academic Dashboard</h3>
+                                    <ul style="list-style: none; padding: 0;">
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Current grades and GPA
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Assignment submissions
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Attendance tracking
+                                        </li>
+                                        <li style="padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Academic progress reports
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Communication Tools -->
+                                <div class="bg-alt" style="padding: var(--spacing-lg); border-radius: var(--border-radius-md);">
+                                    <h3 class="text-secondary mb-md">💬 Communication</h3>
+                                    <ul style="list-style: none; padding: 0;">
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Teacher messaging
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            School announcements
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Parent notifications
+                                        </li>
+                                        <li style="padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Discussion forums
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Course Materials -->
+                                <div class="bg-alt" style="padding: var(--spacing-lg); border-radius: var(--border-radius-md);">
+                                    <h3 class="text-accent mb-md">📚 Course Materials</h3>
+                                    <ul style="list-style: none; padding: 0;">
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Digital textbooks
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Lecture recordings
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Study guides
+                                        </li>
+                                        <li style="padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Resource library
+                                        </li>
+                                    </ul>
+                                </div>
+                                
+                                <!-- Personal Tools -->
+                                <div class="bg-alt" style="padding: var(--spacing-lg); border-radius: var(--border-radius-md);">
+                                    <h3 class="text-warning mb-md">🎯 Personal Tools</h3>
+                                    <ul style="list-style: none; padding: 0;">
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Personal calendar
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Goal tracking
+                                        </li>
+                                        <li style="margin-bottom: var(--spacing-sm); padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Study planner
+                                        </li>
+                                        <li style="padding-left: var(--spacing-lg); position: relative;">
+                                            <span style="position: absolute; left: 0; color: var(--color-success);">✓</span>
+                                            Profile settings
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mock Dashboard Preview -->
+        <section class="section bg-alt">
+            <div class="container">
+                <h2 class="text-center mb-xl">Dashboard Preview</h2>
+                <p class="text-center mb-lg" style="color: var(--color-text-light);">
+                    Here's what your dashboard would look like when you're logged in:
+                </p>
+                
+                <div style="max-width: 1000px; margin: 0 auto;">
+                    <div class="grid grid-md-3" style="gap: var(--spacing-lg);">
+                        
+                        <!-- Quick Stats -->
+                        <div class="card">
+                            <div class="card-content text-center">
+                                <h3 class="text-primary">Current GPA</h3>
+                                <div style="font-size: var(--font-size-4xl); font-weight: bold; color: var(--color-success); margin: var(--spacing-md) 0;">3.7</div>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">Above average performance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content text-center">
+                                <h3 class="text-secondary">Attendance</h3>
+                                <div style="font-size: var(--font-size-4xl); font-weight: bold; color: var(--color-success); margin: var(--spacing-md) 0;">95%</div>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">Excellent attendance</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content text-center">
+                                <h3 class="text-accent">Assignments</h3>
+                                <div style="font-size: var(--font-size-4xl); font-weight: bold; color: var(--color-warning); margin: var(--spacing-md) 0;">3</div>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">Due this week</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Activity -->
+                    <div class="card mt-xl">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                        </div>
+                        <div class="card-content">
+                            <div style="border-left: 3px solid var(--color-primary); padding-left: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                                <h4 style="margin-bottom: var(--spacing-xs);">Math Quiz Graded</h4>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">Score: 92% - Great work on algebra problems!</p>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-xs);">2 hours ago</p>
+                            </div>
+                            
+                            <div style="border-left: 3px solid var(--color-secondary); padding-left: var(--spacing-md); margin-bottom: var(--spacing-md);">
+                                <h4 style="margin-bottom: var(--spacing-xs);">New Assignment Posted</h4>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">English Literature Essay - Due Friday, Sept 15</p>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-xs);">1 day ago</p>
+                            </div>
+                            
+                            <div style="border-left: 3px solid var(--color-success); padding-left: var(--spacing-md);">
+                                <h4 style="margin-bottom: var(--spacing-xs);">Science Project Submitted</h4>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-sm);">Physics Lab Report - Waiting for teacher review</p>
+                                <p style="color: var(--color-text-light); font-size: var(--font-size-xs);">3 days ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <h2 class="text-center mb-xl">Implementation Notes</h2>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="text-primary mb-md">🔧 Technical Architecture</h3>
+                            <p class="mb-md">
+                                This student portal placeholder demonstrates the frontend interface for a learning management system. 
+                                In a production environment, this would integrate with:
+                            </p>
+                            
+                            <div class="grid grid-md-2" style="gap: var(--spacing-md);">
+                                <div>
+                                    <h4 class="mb-sm">Backend Systems</h4>
+                                    <ul style="font-size: var(--font-size-sm); color: var(--color-text-light);">
+                                        <li>Student Information System (SIS)</li>
+                                        <li>Learning Management System (LMS)</li>
+                                        <li>Grade book database</li>
+                                        <li>Authentication service</li>
+                                        <li>File storage system</li>
+                                    </ul>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="mb-sm">Security Features</h4>
+                                    <ul style="font-size: var(--font-size-sm); color: var(--color-text-light);">
+                                        <li>SSL/TLS encryption</li>
+                                        <li>Multi-factor authentication</li>
+                                        <li>Role-based access control</li>
+                                        <li>Session management</li>
+                                        <li>Data privacy compliance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section bg-secondary" style="color: white; text-align: center;">
+            <div class="container">
+                <h2 style="color: white; margin-bottom: var(--spacing-lg);">Ready to Access Your Portal?</h2>
+                <p style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-xl); color: white;">
+                    Log in to explore your personalized learning dashboard and academic resources.
+                </p>
+                <div style="display: flex; gap: var(--spacing-md); justify-content: center; flex-wrap: wrap;">
+                    <a href="login.html" class="btn btn-accent">Login Now</a>
+                    <a href="about.html" class="btn" style="background-color: white; color: var(--color-secondary); border-color: white;">Learn More</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="section" style="background-color: var(--color-text); color: white; padding: var(--spacing-xl) 0;" role="contentinfo">
+        <div class="container">
+            <div class="grid grid-md-3" style="gap: var(--spacing-xl);">
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">Contact Information</h3>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">123 Education Boulevard</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Riverside, CA 92501</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Phone: (555) 123-4567</p>
+                    <p style="color: white;">Email: info@riversideacademy.edu</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="about.html" style="color: white;">About Us</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="admissions.html" style="color: white;">Admissions</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="events.html" style="color: white;">Events</a></li>
+                        <li><a href="student-portal.html" style="color: white;">Student Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">School Hours</h3>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Monday - Friday: 8:00 AM - 3:30 PM</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Office Hours: 7:30 AM - 4:00 PM</p>
+                    <p style="color: white;">Emergency: (555) 123-4568</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl); padding-top: var(--spacing-xl); border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="color: white;">&copy; 2024 Riverside Academy. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Portal-specific JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loggedInView = document.getElementById('loggedInView');
+            const loggedOutView = document.getElementById('loggedOutView');
+            const userInfo = document.getElementById('userInfo');
+            const welcomeMessage = document.getElementById('welcomeMessage');
+            
+            // Check if user is logged in
+            const currentUser = JSON.parse(sessionStorage.getItem('currentUser') || 'null');
+            
+            if (currentUser) {
+                // Show logged in view
+                loggedInView.style.display = 'block';
+                loggedOutView.style.display = 'none';
+                
+                // Update welcome message
+                welcomeMessage.textContent = `Welcome back, ${currentUser.name}!`;
+                
+                // Show user info
+                userInfo.innerHTML = `
+                    <p><strong>Name:</strong> ${currentUser.name}</p>
+                    <p><strong>Role:</strong> ${currentUser.role.charAt(0).toUpperCase() + currentUser.role.slice(1)}</p>
+                    <p><strong>Username:</strong> ${currentUser.username}</p>
+                `;
+            } else {
+                // Show logged out view
+                loggedInView.style.display = 'none';
+                loggedOutView.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

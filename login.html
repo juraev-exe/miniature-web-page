@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to access Riverside Academy's student portal, resources, and personalized content.">
+    <title>Login - Riverside Academy</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <!-- Header and Navigation -->
+    <header class="header" role="banner">
+        <div class="container">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <a href="index.html" class="nav-brand" aria-label="Riverside Academy Home">
+                    <img src="assets/logos/logo.svg" alt="Riverside Academy Logo" width="120" height="60">
+                </a>
+                
+                <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="hamburger"></span>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu" role="menubar">
+                    <li role="none"><a href="index.html" class="nav-link" role="menuitem">Home</a></li>
+                    <li role="none"><a href="about.html" class="nav-link" role="menuitem">About</a></li>
+                    <li role="none"><a href="admissions.html" class="nav-link" role="menuitem">Admissions</a></li>
+                    <li role="none"><a href="events.html" class="nav-link" role="menuitem">Events</a></li>
+                    <li role="none"><a href="login.html" class="nav-link" role="menuitem">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Page Header -->
+        <section class="section bg-primary" style="color: white; text-align: center; padding: 3rem 0;">
+            <div class="container">
+                <h1 style="color: white; margin-bottom: var(--spacing-md);">Student Login</h1>
+                <p style="font-size: var(--font-size-lg); color: white; max-width: 600px; margin: 0 auto;">
+                    Access your personalized student portal and school resources.
+                </p>
+            </div>
+        </section>
+
+        <!-- Login Form Section -->
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 500px; margin: 0 auto;">
+                    
+                    <!-- Login Form -->
+                    <div class="card" id="loginFormContainer">
+                        <div class="card-content">
+                            <h2 class="text-center mb-lg">Welcome Back</h2>
+                            
+                            <!-- General Error Message -->
+                            <div id="generalError" class="form-error" style="display: none; margin-bottom: var(--spacing-md);" role="alert" aria-live="polite"></div>
+                            
+                            <form id="loginForm" novalidate>
+                                <div class="form-group">
+                                    <label for="username" class="form-label">
+                                        Username <span style="color: var(--color-error);" aria-label="required">*</span>
+                                    </label>
+                                    <input 
+                                        type="text" 
+                                        id="username" 
+                                        name="username" 
+                                        class="form-input" 
+                                        required 
+                                        autocomplete="username"
+                                        aria-describedby="usernameError usernameHelp"
+                                        placeholder="Enter your username"
+                                    >
+                                    <div id="usernameError" class="form-error" style="display: none;" role="alert" aria-live="polite"></div>
+                                    <div id="usernameHelp" class="form-help" style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-top: var(--spacing-xs);">
+                                        Use your student ID or assigned username
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password" class="form-label">
+                                        Password <span style="color: var(--color-error);" aria-label="required">*</span>
+                                    </label>
+                                    <div style="position: relative;">
+                                        <input 
+                                            type="password" 
+                                            id="password" 
+                                            name="password" 
+                                            class="form-input" 
+                                            required 
+                                            autocomplete="current-password"
+                                            aria-describedby="passwordError passwordHelp"
+                                            placeholder="Enter your password"
+                                        >
+                                        <button 
+                                            type="button" 
+                                            id="togglePassword" 
+                                            style="position: absolute; right: var(--spacing-sm); top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: var(--color-text-light); font-size: var(--font-size-sm);"
+                                            aria-label="Toggle password visibility"
+                                            tabindex="-1"
+                                        >
+                                            👁️
+                                        </button>
+                                    </div>
+                                    <div id="passwordError" class="form-error" style="display: none;" role="alert" aria-live="polite"></div>
+                                    <div id="passwordHelp" class="form-help" style="font-size: var(--font-size-sm); color: var(--color-text-light); margin-top: var(--spacing-xs);">
+                                        Minimum 6 characters required
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label style="display: flex; align-items: center; gap: var(--spacing-sm); cursor: pointer;">
+                                        <input type="checkbox" id="rememberMe" name="rememberMe" style="margin: 0;">
+                                        <span style="font-size: var(--font-size-sm);">Remember me on this device</span>
+                                    </label>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                        Sign In
+                                    </button>
+                                </div>
+                            </form>
+                            
+                            <div class="text-center" style="margin-top: var(--spacing-lg); padding-top: var(--spacing-lg); border-top: 1px solid var(--color-border);">
+                                <p style="margin-bottom: var(--spacing-sm);">
+                                    <a href="#" onclick="alert('Password reset functionality would be implemented here.')">
+                                        Forgot your password?
+                                    </a>
+                                </p>
+                                <p style="font-size: var(--font-size-sm); color: var(--color-text-light);">
+                                    Need help? Contact <a href="mailto:support@riversideacademy.edu">IT Support</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Success Message (Hidden by default) -->
+                    <div id="loginSuccess" class="card" style="display: none; border: 2px solid var(--color-success);">
+                        <div class="card-content text-center">
+                            <!-- Success content will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Demo Credentials -->
+        <section class="section bg-alt">
+            <div class="container">
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <h2 class="text-center mb-lg">Demo Credentials</h2>
+                    <p class="text-center" style="color: var(--color-text-light); margin-bottom: var(--spacing-lg);">
+                        For demonstration purposes, you can use any of the following credentials:
+                    </p>
+                    
+                    <div class="grid grid-sm-2" style="gap: var(--spacing-md);">
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="text-primary" style="font-size: var(--font-size-lg);">Student Account</h3>
+                                <p style="margin-bottom: var(--spacing-sm);"><strong>Username:</strong> student1</p>
+                                <p><strong>Password:</strong> password123</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <div class="card-content">
+                                <h3 class="text-secondary" style="font-size: var(--font-size-lg);">Teacher Account</h3>
+                                <p style="margin-bottom: var(--spacing-sm);"><strong>Username:</strong> teacher1</p>
+                                <p><strong>Password:</strong> teacher456</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card" style="grid-column: 1 / -1;">
+                            <div class="card-content text-center">
+                                <h3 class="text-accent" style="font-size: var(--font-size-lg);">Administrator Account</h3>
+                                <p style="margin-bottom: var(--spacing-sm);"><strong>Username:</strong> admin</p>
+                                <p><strong>Password:</strong> admin789</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: var(--spacing-lg); padding: var(--spacing-md); background-color: #fff3cd; border: 1px solid #ffeaa7; border-radius: var(--border-radius-md); color: #856404;">
+                        <strong>⚠️ Demo Notice:</strong> This is a demonstration login system. In a real application, passwords would be securely hashed and stored, and proper authentication would be implemented with a backend server.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Benefits -->
+        <section class="section">
+            <div class="container">
+                <h2 class="text-center mb-xl">What You Get With Login</h2>
+                <div class="grid grid-md-3" style="gap: var(--spacing-lg);">
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                📚
+                            </div>
+                            <h3 class="text-primary">Academic Resources</h3>
+                            <p>Access your grades, assignments, course materials, and academic calendar.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-secondary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                💬
+                            </div>
+                            <h3 class="text-secondary">Communication</h3>
+                            <p>Send and receive messages from teachers, view announcements, and join discussions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                📊
+                            </div>
+                            <h3 class="text-accent">Progress Tracking</h3>
+                            <p>Monitor your academic progress, attendance, and achievement milestones.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-success); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🎯
+                            </div>
+                            <h3 class="text-success">Personalized Content</h3>
+                            <p>Get personalized recommendations, study resources, and academic support.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-warning); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                📅
+                            </div>
+                            <h3 class="text-warning">Schedule Management</h3>
+                            <p>View your class schedule, upcoming events, and important deadlines.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card text-center">
+                        <div class="card-content">
+                            <div style="width: 80px; height: 80px; background-color: var(--color-text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--spacing-md); color: white; font-size: var(--font-size-2xl);">
+                                🔒
+                            </div>
+                            <h3 style="color: var(--color-text-light);">Secure Access</h3>
+                            <p>Your data is protected with industry-standard security measures and encryption.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="section" style="background-color: var(--color-text); color: white; padding: var(--spacing-xl) 0;" role="contentinfo">
+        <div class="container">
+            <div class="grid grid-md-3" style="gap: var(--spacing-xl);">
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">Contact Information</h3>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">123 Education Boulevard</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Riverside, CA 92501</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Phone: (555) 123-4567</p>
+                    <p style="color: white;">Email: info@riversideacademy.edu</p>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="about.html" style="color: white;">About Us</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="admissions.html" style="color: white;">Admissions</a></li>
+                        <li style="margin-bottom: var(--spacing-sm);"><a href="events.html" style="color: white;">Events</a></li>
+                        <li><a href="student-portal.html" style="color: white;">Student Portal</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: white; margin-bottom: var(--spacing-md);">School Hours</h3>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Monday - Friday: 8:00 AM - 3:30 PM</p>
+                    <p style="color: white; margin-bottom: var(--spacing-sm);">Office Hours: 7:30 AM - 4:00 PM</p>
+                    <p style="color: white;">Emergency: (555) 123-4568</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: var(--spacing-xl); padding-top: var(--spacing-xl); border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="color: white;">&copy; 2024 Riverside Academy. All rights reserved. | <a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+    
+    <!-- Password toggle functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            
+            if (togglePassword && passwordInput) {
+                togglePassword.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    
+                    // Update icon and aria-label
+                    if (type === 'text') {
+                        togglePassword.textContent = '🙈';
+                        togglePassword.setAttribute('aria-label', 'Hide password');
+                    } else {
+                        togglePassword.textContent = '👁️';
+                        togglePassword.setAttribute('aria-label', 'Show password');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
