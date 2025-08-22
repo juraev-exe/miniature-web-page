@@ -986,8 +986,78 @@ a:focus {
 }
 
 /* ===========================
-   CALENDAR COMPONENT STYLES
+   NOTIFICATION SYSTEM
    =========================== */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 16px 20px;
+  border-radius: var(--border-radius);
+  color: white;
+  font-weight: 500;
+  box-shadow: var(--shadow-lg);
+  z-index: 1001;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 300px;
+  max-width: 500px;
+  animation: slideInRight 0.3s ease-out;
+}
+
+.notification button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 12px;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s ease;
+}
+
+.notification button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.notification-success {
+  background-color: var(--color-success);
+}
+
+.notification-error {
+  background-color: var(--color-error);
+}
+
+.notification-warning {
+  background-color: var(--color-warning);
+}
+
+.notification-info {
+  background-color: var(--color-primary);
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* ===========================
+   CALENDAR COMPONENT STYLES
+   ===========================*/
 .calendar {
   background-color: var(--color-background);
   border: 1px solid var(--color-border);

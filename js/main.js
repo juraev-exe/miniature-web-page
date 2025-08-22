@@ -21,6 +21,7 @@ const validCredentials = [
 document.addEventListener('DOMContentLoaded', function() {
   initializeNavigation();
   initializeLoginForm();
+  initializeContactForm();
   initializeModals();
   checkAuthentication();
   initializeThemeToggle();
@@ -135,53 +136,8 @@ function toggleTheme() {
 // ===========================
 function initializeLoginForm() {
   const loginForm = document.getElementById('loginForm');
-  const contactForm = document.getElementById('contactForm');
   
-  if (loginForm) {
-    loginForm.addEventListener('submit', handleLogin);
-  }
-  
-  if (contactForm) {
-    contactForm.addEventListener('submit', handleContactForm);
-  }
-}
-
-function handleContactForm(event) {
-  event.preventDefault();
-  
-  const formData = new FormData(event.target);
-  const data = {
-    name: formData.get('name'),
-    email: formData.get('email'),
-    phone: formData.get('phone'),
-    subject: formData.get('subject'),
-    message: formData.get('message')
-  };
-  
-  // Simulate form submission
-  showNotification('Thank you for your message! We will get back to you within 24 hours.', 'success');
-  event.target.reset();
-}
-
-function showNotification(message, type = 'info') {
-  // Create notification element
-  const notification = document.createElement('div');
-  notification.className = `notification notification-${type}`;
-  notification.innerHTML = `
-    <span>${message}</span>
-    <button onclick="this.parentElement.remove()">&times;</button>
-  `;
-  
-  // Add to page
-  document.body.appendChild(notification);
-  
-  // Auto remove after 5 seconds
-  setTimeout(() => {
-    if (notification.parentElement) {
-      notification.remove();
-    }
-  }, 5000);
-}
+  if (!loginForm) return;
   
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -425,6 +381,68 @@ function updateNavigationForUser(user) {
     loginLink.innerHTML = 'Login';
     loginLink.href = 'login.html';
   }
+}
+
+// ===========================
+// CONTACT FORM FUNCTIONALITY
+// ===========================
+function initializeContactForm() {
+  const contactForm = document.getElementById('contactForm');
+  
+  if (!contactForm) return;
+  
+  contactForm.addEventListener('submit', handleContactForm);
+}
+
+function handleContactForm(event) {
+  event.preventDefault();
+  
+  // Get form data
+  const formData = new FormData(event.target);
+  const data = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    subject: formData.get('subject'),
+    message: formData.get('message')
+  };
+  
+  // Basic validation
+  if (!data.name || !data.email || !data.message) {
+    showNotification('Please fill in all required fields.', 'error');
+    return;
+  }
+  
+  // Email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(data.email)) {
+    showNotification('Please enter a valid email address.', 'error');
+    return;
+  }
+  
+  // Simulate form submission
+  showNotification('Thank you for your message! We will get back to you within 24 hours.', 'success');
+  event.target.reset();
+}
+
+function showNotification(message, type = 'info') {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
+    <span>${message}</span>
+    <button onclick="this.parentElement.remove()">&times;</button>
+  `;
+  
+  // Add to page
+  document.body.appendChild(notification);
+  
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentElement) {
+      notification.remove();
+    }
+  }, 5000);
 }
 
 // ===========================
