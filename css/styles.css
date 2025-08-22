@@ -1251,3 +1251,140 @@ a:focus {
 .mt-md { margin-top: var(--spacing-md); }
 .mt-lg { margin-top: var(--spacing-lg); }
 .mt-xl { margin-top: var(--spacing-xl); }
+
+/* ===========================
+   SKELETON LOADING STATES
+   =========================== */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-background-alt) 25%, rgba(255,255,255,0.5) 50%, var(--color-background-alt) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 2s infinite;
+  border-radius: var(--border-radius-md);
+}
+
+[data-theme="dark"] .skeleton {
+  background: linear-gradient(90deg, var(--color-background-alt) 25%, rgba(75,85,99,0.5) 50%, var(--color-background-alt) 75%);
+  background-size: 200% 100%;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.skeleton-text {
+  height: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text.large {
+  height: 1.5rem;
+}
+
+.skeleton-text.small {
+  height: 0.75rem;
+}
+
+.skeleton-avatar {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+}
+
+.skeleton-card {
+  height: 12rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.skeleton-image {
+  height: 8rem;
+  width: 100%;
+}
+
+/* Hide skeleton when content is loaded */
+.content-loaded .skeleton {
+  display: none;
+}
+
+/* ===========================
+   FACULTY PROFILES STYLES
+   =========================== */
+.faculty-card {
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.faculty-image {
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+}
+
+.faculty-info h3 {
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-xl);
+}
+
+.faculty-title {
+  color: var(--color-secondary);
+  font-weight: 600;
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-lg);
+}
+
+.faculty-education {
+  color: var(--color-text-light);
+  font-style: italic;
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+.faculty-bio {
+  text-align: left;
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-lg);
+}
+
+.faculty-expertise {
+  text-align: left;
+  margin-bottom: var(--spacing-lg);
+}
+
+.faculty-expertise h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-base);
+}
+
+.faculty-expertise ul {
+  list-style-type: disc;
+  margin-left: var(--spacing-md);
+}
+
+.faculty-expertise li {
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-light);
+}
+
+.faculty-contact {
+  text-align: left;
+  padding-top: var(--spacing-md);
+  border-top: 1px solid var(--color-border);
+}
+
+.faculty-contact p {
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-sm);
+}
+
+.faculty-contact strong {
+  color: var(--color-primary);
+}

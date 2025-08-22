@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeThemeToggle();
   initializeGallery();
   initializeScrollAnimations();
+  registerServiceWorker();
+  initializeAnalytics();
+  initializeSkeletonLoaders();
   
   // Set active navigation item based on current page
   setActiveNavigation();
@@ -229,6 +232,12 @@ function validateField(input) {
         errorMessage = 'Password is required.';
       } else if (value.length < 6) {
         errorMessage = 'Password must be at least 6 characters long.';
+      } else {
+        // Enhanced password strength validation
+        const strength = checkPasswordStrength(value);
+        if (strength.score < 2) {
+          errorMessage = `Weak password. ${strength.feedback}`;
+        }
       }
       break;
   }
@@ -247,6 +256,39 @@ function validateField(input) {
   }
   
   return !errorMessage;
+}
+
+// ===========================
+// PASSWORD STRENGTH CHECKER
+// ===========================
+function checkPasswordStrength(password) {
+  let score = 0;
+  let feedback = [];
+  
+  // Check length
+  if (password.length >= 8) score += 1;
+  else feedback.push('Use at least 8 characters');
+  
+  // Check for lowercase letters
+  if (/[a-z]/.test(password)) score += 1;
+  else feedback.push('Include lowercase letters');
+  
+  // Check for uppercase letters
+  if (/[A-Z]/.test(password)) score += 1;
+  else feedback.push('Include uppercase letters');
+  
+  // Check for numbers
+  if (/\d/.test(password)) score += 1;
+  else feedback.push('Include numbers');
+  
+  // Check for special characters
+  if (/[!@#$%^&*(),.?":{}|<>]/.test(password)) score += 1;
+  else feedback.push('Include special characters');
+  
+  return {
+    score: score,
+    feedback: feedback.length > 0 ? feedback.join(', ') : 'Strong password!'
+  };
 }
 
 function authenticateUser(username, password) {
@@ -779,3 +821,115 @@ window.prevImage = prevImage;
 window.logout = logout;
 window.redirectToPortal = redirectToPortal;
 window.announceToScreenReader = announceToScreenReader;
+
+// ===========================
+// PWA SERVICE WORKER REGISTRATION
+// ===========================
+function registerServiceWorker() {
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+      navigator.serviceWorker.register('/sw.js')
+        .then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          
+          // Check for updates
+          registration.addEventListener('updatefound', function() {
+            const newWorker = registration.installing;
+            newWorker.addEventListener('statechange', function() {
+              if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                // New content available, prompt user to refresh
+                if (confirm('New version available! Refresh to update?')) {
+                  window.location.reload();
+                }
+              }
+            });
+          });
+        })
+        .catch(function(error) {
+          console.log('ServiceWorker registration failed: ', error);
+        });
+    });
+  }
+}
+
+// ===========================
+// ANALYTICS INTEGRATION
+// ===========================
+function initializeAnalytics() {
+  // Google Analytics placeholder - replace with actual GA4 tracking ID
+  const GA_TRACKING_ID = 'GA_MEASUREMENT_ID'; // Replace with actual ID
+  
+  // Load Google Analytics
+  if (typeof gtag === 'undefined') {
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+    document.head.appendChild(script);
+    
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_TRACKING_ID, {
+      page_title: document.title,
+      page_location: window.location.href
+    });
+    
+    // Make gtag globally available
+    window.gtag = gtag;
+  }
+  
+  // Track page views for SPA-like navigation
+  trackPageView();
+}
+
+function trackPageView(page = window.location.pathname) {
+  if (typeof gtag !== 'undefined') {
+    gtag('config', 'GA_MEASUREMENT_ID', {
+      page_path: page,
+      page_title: document.title
+    });
+  }
+}
+
+function trackEvent(action, category = 'engagement', label = '', value = null) {
+  if (typeof gtag !== 'undefined') {
+    const eventParams = {
+      event_category: category,
+      event_label: label
+    };
+    
+    if (value !== null) {
+      eventParams.value = value;
+    }
+    
+    gtag('event', action, eventParams);
+  }
+  
+  console.log('Analytics Event:', { action, category, label, value });
+}
+
+// ===========================
+// SKELETON LOADING STATES
+// ===========================
+function initializeSkeletonLoaders() {
+  // Simulate loading delay for demonstration
+  setTimeout(() => {
+    showNewsContent();
+  }, 2000); // 2 second delay to show skeleton loading
+}
+
+function showNewsContent() {
+  const skeletonContent = document.querySelector('.skeleton-content');
+  const newsContent = document.querySelector('.news-content');
+  
+  if (skeletonContent && newsContent) {
+    skeletonContent.style.display = 'none';
+    newsContent.style.display = 'grid';
+    
+    // Announce to screen readers
+    announceToScreenReader('News content loaded');
+    
+    // Track loading completion
+    trackEvent('content_loaded', 'performance', 'news_section');
+  }
+}
