@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
   initializeLoginForm();
   initializeModals();
   checkAuthentication();
+  initializeThemeToggle();
+  initializeGallery();
+  initializeScrollAnimations();
   
   // Set active navigation item based on current page
   setActiveNavigation();
@@ -91,11 +94,94 @@ function setActiveNavigation() {
 }
 
 // ===========================
+// DARK MODE THEME TOGGLE
+// ===========================
+function initializeThemeToggle() {
+  // Get saved theme from localStorage or default to light
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  
+  // Apply the saved theme
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  // Find all theme toggle buttons
+  const themeToggleButtons = document.querySelectorAll('.theme-toggle');
+  
+  themeToggleButtons.forEach(button => {
+    button.addEventListener('click', toggleTheme);
+  });
+}
+
+function toggleTheme() {
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  // Apply new theme
+  document.documentElement.setAttribute('data-theme', newTheme);
+  
+  // Save to localStorage
+  localStorage.setItem('theme', newTheme);
+  
+  // Optional: Add a smooth transition effect
+  document.documentElement.style.transition = 'background-color 0.3s ease, color 0.3s ease';
+  
+  // Remove transition after animation completes
+  setTimeout(() => {
+    document.documentElement.style.transition = '';
+  }, 300);
+}
+
+// ===========================
 // LOGIN FORM FUNCTIONALITY
 // ===========================
 function initializeLoginForm() {
   const loginForm = document.getElementById('loginForm');
-  if (!loginForm) return;
+  const contactForm = document.getElementById('contactForm');
+  
+  if (loginForm) {
+    loginForm.addEventListener('submit', handleLogin);
+  }
+  
+  if (contactForm) {
+    contactForm.addEventListener('submit', handleContactForm);
+  }
+}
+
+function handleContactForm(event) {
+  event.preventDefault();
+  
+  const formData = new FormData(event.target);
+  const data = {
+    name: formData.get('name'),
+    email: formData.get('email'),
+    phone: formData.get('phone'),
+    subject: formData.get('subject'),
+    message: formData.get('message')
+  };
+  
+  // Simulate form submission
+  showNotification('Thank you for your message! We will get back to you within 24 hours.', 'success');
+  event.target.reset();
+}
+
+function showNotification(message, type = 'info') {
+  // Create notification element
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.innerHTML = `
+    <span>${message}</span>
+    <button onclick="this.parentElement.remove()">&times;</button>
+  `;
+  
+  // Add to page
+  document.body.appendChild(notification);
+  
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentElement) {
+      notification.remove();
+    }
+  }, 5000);
+}
   
   loginForm.addEventListener('submit', function(event) {
     event.preventDefault();
@@ -483,11 +569,192 @@ function trapFocus(element) {
 }
 
 // ===========================
+// GALLERY FUNCTIONALITY
+// ===========================
+let currentImageIndex = 0;
+let galleryImages = [];
+
+function initializeGallery() {
+  const filterButtons = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  
+  // Collect all gallery images for lightbox navigation
+  galleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  
+  if (filterButtons.length === 0) return; // Not on gallery page
+  
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const filter = this.getAttribute('data-filter');
+      
+      // Update active button
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Filter gallery items
+      galleryItems.forEach(item => {
+        const category = item.getAttribute('data-category');
+        if (filter === 'all' || category === filter) {
+          item.style.display = 'block';
+          setTimeout(() => {
+            item.classList.remove('hidden');
+          }, 10);
+        } else {
+          item.classList.add('hidden');
+          setTimeout(() => {
+            item.style.display = 'none';
+          }, 300);
+        }
+      });
+    });
+  });
+}
+
+function openLightbox(button) {
+  const item = button.closest('.gallery-item');
+  const img = item.querySelector('img');
+  const title = item.querySelector('h3').textContent;
+  const description = item.querySelector('p').textContent;
+  
+  // Find the index of the current image
+  currentImageIndex = galleryImages.indexOf(img);
+  
+  // Update lightbox content
+  document.getElementById('lightboxImage').src = img.src;
+  document.getElementById('lightboxImage').alt = img.alt;
+  document.getElementById('lightboxTitle').textContent = title;
+  document.getElementById('lightboxDescription').textContent = description;
+  
+  // Show lightbox
+  const modal = document.getElementById('lightboxModal');
+  modal.style.display = 'flex';
+  setTimeout(() => {
+    modal.classList.add('active');
+  }, 10);
+  
+  // Prevent body scroll
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  modal.classList.remove('active');
+  setTimeout(() => {
+    modal.style.display = 'none';
+  }, 300);
+  
+  // Restore body scroll
+  document.body.style.overflow = '';
+}
+
+function nextImage() {
+  if (currentImageIndex < galleryImages.length - 1) {
+    currentImageIndex++;
+    updateLightboxImage();
+  }
+}
+
+function prevImage() {
+  if (currentImageIndex > 0) {
+    currentImageIndex--;
+    updateLightboxImage();
+  }
+}
+
+function updateLightboxImage() {
+  const img = galleryImages[currentImageIndex];
+  const item = img.closest('.gallery-item');
+  const title = item.querySelector('h3').textContent;
+  const description = item.querySelector('p').textContent;
+  
+  document.getElementById('lightboxImage').src = img.src;
+  document.getElementById('lightboxImage').alt = img.alt;
+  document.getElementById('lightboxTitle').textContent = title;
+  document.getElementById('lightboxDescription').textContent = description;
+}
+
+// ===========================
+// SCROLL ANIMATIONS
+// ===========================
+function initializeScrollAnimations() {
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, observerOptions);
+  
+  // Observe elements that should animate on scroll
+  const animateElements = document.querySelectorAll('.card, .feature-card, .gallery-item, .stat-item');
+  animateElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+}
+
+// ===========================
+// STATISTICS COUNTER
+// ===========================
+function animateCounters() {
+  const counters = document.querySelectorAll('.stat-number');
+  
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px'
+  };
+  
+  const counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = entry.target;
+        const target = parseInt(counter.getAttribute('data-target'));
+        const increment = target / 100;
+        let current = 0;
+        
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(current);
+          }
+        }, 20);
+        
+        counterObserver.unobserve(counter);
+      }
+    });
+  }, observerOptions);
+  
+  counters.forEach(counter => {
+    counterObserver.observe(counter);
+  });
+}
+
+// Call animate counters on page load
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(animateCounters, 1000);
+});
+
+// ===========================
 // GLOBAL FUNCTIONS
 // ===========================
 // Make some functions globally available
 window.openModal = openModal;
 window.closeModal = closeModal;
+window.openLightbox = openLightbox;
+window.closeLightbox = closeLightbox;
+window.nextImage = nextImage;
+window.prevImage = prevImage;
 window.logout = logout;
 window.redirectToPortal = redirectToPortal;
 window.announceToScreenReader = announceToScreenReader;
