@@ -1,0 +1,203 @@
+/* ===========================
+   ADMISSIONS PAGE SPECIFIC STYLES
+   =========================== */
+
+/* Import base styles */
+@import url('styles.css');
+
+/* Admissions specific enhancements */
+.application-process {
+  background: var(--color-background-alt);
+}
+
+.process-step {
+  background: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.process-step:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.process-step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--color-primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: bold;
+  margin: 0 auto var(--spacing-md);
+  position: relative;
+  z-index: 2;
+}
+
+.process-step-number::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  width: 50px;
+  height: 2px;
+  background: var(--color-primary);
+  transform: translateY(-50%);
+  opacity: 0.3;
+}
+
+.process-step:last-child .process-step-number::after {
+  display: none;
+}
+
+/* Requirements checklist */
+.requirements-list {
+  background: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  border-left: 4px solid var(--color-primary);
+}
+
+.requirements-list li {
+  position: relative;
+  padding-left: var(--spacing-lg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.requirements-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: bold;
+}
+
+/* Tuition table */
+.tuition-table {
+  background: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.tuition-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  transition: background-color 0.3s ease;
+}
+
+.tuition-row:hover {
+  background: var(--color-background-alt);
+}
+
+.tuition-row:last-child {
+  border-bottom: none;
+  background: var(--color-primary);
+  color: white;
+  font-weight: bold;
+}
+
+/* Scholarship cards */
+.scholarship-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+}
+
+.scholarship-card {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: white;
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.scholarship-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100px;
+  height: 100px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.scholarship-card:hover {
+  transform: scale(1.05);
+}
+
+.scholarship-card:hover::before {
+  top: -30%;
+  right: -30%;
+  width: 150px;
+  height: 150px;
+}
+
+.scholarship-amount {
+  font-size: var(--font-size-3xl);
+  font-weight: bold;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Contact admissions section */
+.admissions-contact {
+  background: var(--color-background-alt);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.contact-item {
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  background: var(--color-background);
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .process-step-number::after {
+    display: none;
+  }
+  
+  .tuition-row {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+    text-align: center;
+  }
+  
+  .scholarship-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .contact-info {
+    grid-template-columns: 1fr;
+  }
+}
